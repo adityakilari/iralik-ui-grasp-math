@@ -1,0 +1,130 @@
+<div class="card-top container-fluid">
+    <div class="container d-flux">
+        <h2>
+            STUDENT PROGRAM REGISTRATION
+        </h2>
+        <p id="p1">
+            Please provide detailed information regarding your student including math level and any specific needs and expectations. <br>
+            After receiving the submission, we will contact you shortly for class scheduling.
+        </p>
+    </div> 
+</div>
+
+
+<div class="container" *ngIf="showContainer">
+
+   
+            <div class="card">
+                <h4 style="text-align: center;">
+                    REGISTRATION FORM
+                </h4>
+                <form action="POST" [formGroup]="registrationForm" (ngSubmit) = "submitregistration()" data-netlify="true">
+                    <div class="inputfield" style="display: flex; align-items: center;">
+                        
+                        <label for="Parent Name">Parent Name*</label>
+                        <input type="text" class="input" id="parentname" name="parentname" 
+                        [(ngModel)]="programregistration.parentname" formControlName="parentname">
+                        
+                        <div id="validation"class="form-text text-danger" 
+                        *ngIf="parentname.errors?.['required'] && parentname.touched">
+                            Parent name is mandatory
+                        </div>
+
+            
+                        <label>Email*</label>
+                        <input type="email" class="input" name="email" 
+                        [(ngModel)]="programregistration.email" formControlName="email">
+                        <div id="validation"class="form-text text-danger" 
+                        *ngIf="email.errors?.['required'] && email.touched">
+                            email is mandatory
+                        </div>
+                       
+
+
+            
+                        <label>Phone Number*</label>
+                        <input type="tel" class="input" name="phone-number" maxlength="10" id="phone-number" 
+                        [(ngModel)]="programregistration.phone" formControlName="phone">
+                        <div id="validation"class="form-text text-danger" 
+                        *ngIf="phone.errors?.['required'] && phone.touched">
+                            phone number is mandatory
+                        </div>
+                        
+
+                    </div>
+                    <div class="inputfield" style="display: flex;">
+
+                        <label for="Student Name">Student Name*</label>
+                        <input type="text" class="input" id="studentname" name="studentname"  
+                        [(ngModel)]="programregistration.studentname" formControlName="studentname">
+                        <div id="validation"class="form-text text-danger" 
+                        *ngIf="studentname.errors?.['required'] && studentname.touched">
+                        student name is mandatory
+                        </div>
+
+                        <label>School Name*</label>
+                        <input type="text" class="input" name="schoolname" 
+                        [(ngModel)]="programregistration.schoolname" formControlName="schoolname">
+                        <div id="validation"class="form-text text-danger" 
+                        *ngIf="schoolname.errors?.['required'] && schoolname.touched">
+                        school name is mandatory
+                        </div>
+
+                        <label>Grade*</label>
+                        <input type="text" class="input" name="grade" 
+                        [(ngModel)]="programregistration.grade" formControlName="grade">
+                        <div id="validation"class="form-text text-danger" 
+                        *ngIf="grade.errors?.['required'] && grade.touched">
+                         student grade is mandatory
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="inputfield" style="display: flex;">
+
+                            <label for="course">Select Course*</label>
+                            <select name="courde" id="course" [(ngModel)]="courseid" formControlName="course">
+                                <option *ngFor = "let course of courses" value="{{course.id}}">{{course.name}}</option>
+                            </select>
+                
+                            <div id="validation"class="form-text text-danger" 
+                        *ngIf="course.errors?.['required'] && course.touched">
+                         select course from dropdown
+                        </div>
+
+                            <label for="duration">Select class duration*</label>
+                
+                            <select name="duration" id="duraton" [(ngModel)]="classduration" formControlName="duration">
+                                <option value="1.5">1.5 hr</option>
+                                <option value="2">2 hrs</option>
+                            </select>
+
+                            <div id="validation"class="form-text text-danger" 
+                        *ngIf="duration.errors?.['required'] && duration.touched">
+                         select class duration from dropdown
+                        </div>
+
+                    </div>
+                        
+                    
+                    <div class="inputfield" style="display: flex;">
+                            <label for="needs">Specific Needs and Expectations</label>
+                            <textarea id="needs" name="needs" rows="5" cols="80" 
+                            [(ngModel)]="specificneeds" formControlName="needs"> </textarea>
+                    </div>
+                    
+                    <div class="btn btn-success" id="btn">
+                            <button type="submit" value="Register" class="btn" >Register</button>
+                    </div>
+
+                </form>
+
+
+            </div>
+   
+
+</div>
+<div class="container" id="successmessage" *ngIf="showContainer == false">
+    <h2 style="color: green;">Submission Successful</h2>
+    <p> Tutor will be reachingout to you shortly <p>
+</div>

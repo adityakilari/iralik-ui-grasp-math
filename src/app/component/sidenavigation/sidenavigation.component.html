@@ -1,0 +1,49 @@
+
+   <mat-sidenav-container>
+    <mat-sidenav #sidenav class="custom-sidenav" mode="side" opened="true">
+      <mat-nav-list>
+        
+         <button id="menubutton" mat-icon-button (click)="toggleSidenav()">
+            <!-- <mat-icon>menu</mat-icon> -->
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <a mat-list-item>
+            <!-- <mat-icon routerLink="/home">home</mat-icon> -->
+            <i routerLink="/home" class="fa-solid fa-house"></i>
+            <span routerLink="/home" class="menu-item-text"  [class.hide-text]="textHidden">Home</span>
+          </a>
+          <a mat-list-item>
+          
+            <i routerLink="/registration" class="fa-solid fa-pen-to-square"></i>
+            <span routerLink="/registration" class="menu-item-text"  [class.hide-text]="textHidden">Registration</span>
+          </a>
+
+          <a routerLink="/home" mat-list-item>
+            <i class="fa-solid fa-book-open"></i>
+             <span routerLink="/registration" class="menu-item-text"  [class.hide-text]="textHidden">Courses</span>
+           </a>
+
+           <a routerLink="/home" mat-list-item>
+            <i class="fa-solid fa-chalkboard-user"></i>
+             <span routerLink="/registration" class="menu-item-text"  [class.hide-text]="textHidden">Tutor</span>
+           </a>
+
+          <a routerLink="/developer" mat-list-item>
+           <i class="fa-solid fa-code"></i>
+            <span routerLink="/developer" class="menu-item-text"  [class.hide-text]="textHidden">Developer</span>
+          </a>
+  
+          <a routerLink="/home" mat-list-item>
+            <i class="fa-solid fa-circle-info"></i>
+             <span routerLink="/registration" class="menu-item-text"  [class.hide-text]="textHidden">About</span>
+           </a>
+   
+         
+
+    </mat-nav-list>
+  </mat-sidenav>
+    <div class="my-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-container>

@@ -1,0 +1,27 @@
+
+mat-sidenav-container {
+  width: 100%;
+  height: calc(100% - 64px);
+}
+i {
+    
+    font-size: 15px; 
+    vertical-align: middle;
+    margin-left: 4px;
+  }
+  
+
+  .menu-item-text {
+    font-size: 15px;
+    font-weight: bold;
+    color: black; 
+    vertical-align: middle;
+    margin-left: 8px;
+    
+  }
+  .hide-text {
+    display: none;
+  }
+  #menubutton{
+    margin-left: 4px;
+  }
